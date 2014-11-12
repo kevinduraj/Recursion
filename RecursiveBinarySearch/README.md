@@ -1,3 +1,7 @@
+Recursive Binary Search
+=======================
+
+```
 array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 element = 5
@@ -48,3 +52,4 @@ element = 5
 element = 8
 element = 9
 Found 9 at 9 index
+```
