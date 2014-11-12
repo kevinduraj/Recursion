@@ -2,20 +2,8 @@ package permutation;
 
 public class Permutation {
 
-    private final boolean[] used;
-    private final StringBuilder output = new StringBuilder();
-    private final String input;
-
     /*-----------------------------------------------------------------------*/
-    public Permutation(String str) {
-
-        input = str;
-        used = new boolean[input.length()];
-
-    }
-    /*-----------------------------------------------------------------------*/
-
-    public void permute() {
+    public void permute(String input, StringBuilder output, boolean[] used) {
 
         if (output.length() == input.length()) {
             System.out.println(output);
@@ -23,25 +11,29 @@ public class Permutation {
         }
 
         for (int i = 0; i < input.length(); ++i) {
-            if (used[i]) {
-                continue;
-            }
-            output.append(input.charAt(i));
+            
+            if (used[i]) continue;                 // equal true, do not permute
+            
+            output.append(input.charAt(i));        // add 1 char
             used[i] = true;
-            
-            permute();
-            
+
+            permute(input, output, used);          // permutation
+
             used[i] = false;
-            output.setLength(output.length() - 1);
+            output.setLength(output.length() - 1); // cutoff 1 char
         }
 
     }
     /*-----------------------------------------------------------------------*/
 
     public static void main(String[] args) {
-        Permutation perm = new Permutation("kev");
-        perm.permute();
 
+        String input = "kev";
+        boolean[] used = new boolean[input.length()];
+        StringBuilder output = new StringBuilder();
+
+        Permutation permute = new Permutation();
+        permute.permute(input, output, used);
     }
     /*-----------------------------------------------------------------------*/
 }
