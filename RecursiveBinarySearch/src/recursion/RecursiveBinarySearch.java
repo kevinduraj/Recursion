@@ -31,7 +31,7 @@ public class RecursiveBinarySearch {
 
         int[] array = {4, 3, 2, 6, 9, 1, 5, 0, 7, 8};
         Arrays.sort(array);
-        System.out.println("array = " + Arrays.toString(array));
+        System.out.println("array = " + Arrays.toString(array) + "\n");
 
         for(int i=0; i<array.length; i++) {
             int index = recursion(array, array[i], 0, array.length);
